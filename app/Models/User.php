@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class,'marks', 'user_id', 'subject_id')
+            ->withPivot('mark');
+    }
 }
