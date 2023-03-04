@@ -32,7 +32,8 @@ class StudentTable extends DataTableComponent
                 ->sortable(),
             LinkColumn::make('Action')
                 ->title(fn($row) => 'Edit')
-                ->location(fn($row) => route('students.create')),
+                ->location(fn($row) => route('students.edit', $row)),
+
         ];
     }
 }

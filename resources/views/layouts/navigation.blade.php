@@ -57,7 +57,7 @@
                 </li>
 
                 <li class="items-center">
-                    <x-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
+                    <x-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index', 'students.create', 'students.edit')">
                         <x-slot name="icon">
                             <i class="fas fa-users mr-2 text-sm opacity-75"></i>
                         </x-slot>
