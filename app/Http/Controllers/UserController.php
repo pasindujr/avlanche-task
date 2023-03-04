@@ -8,8 +8,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate();
+        return view('students.index');
+    }
 
-        return view('students.index', compact('users'));
+    public function edit(User $user)
+    {
+
     }
 }
