@@ -27,12 +27,13 @@ Route::middleware('auth')->group(function () {
     Route::view('about', 'about')->name('about');
 
     Route::get('students', [UserController::class, 'index'])->name('students.index');
-    Route::view('students/create','students.create')->name('students.create');
-    Route::get('students/edit/{user}',[UserController::class,'edit'])->name('students.edit');
+    Route::view('students/create', 'students.create')->name('students.create');
+    Route::get('students/edit/{user}', [UserController::class, 'edit'])->name('students.edit');
+    Route::get('students/delete/{user}', [UserController::class, 'delete'])->name('students.delete');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
