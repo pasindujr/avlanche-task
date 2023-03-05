@@ -29,7 +29,7 @@
                     </a>
 
                 </div>
-                @livewire('student.student-table')
+                @livewire('subject.subject-table')
             </div>
 
 
