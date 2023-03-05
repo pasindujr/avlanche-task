@@ -10,11 +10,11 @@
 
             </div>
             <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-bold mb-2">Email:</label>
-                <input type="email" id="email" name="email" wire:model="email"
+                <label for="weight" class="block text-gray-700 font-bold mb-2">Weight:</label>
+                <input type="number" id="weight" name="weight" wire:model="weight"
                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                        required>
-                @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                @error('weight') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
             <div class="flex items-center justify-between">
                 <button type="submit"

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -15,10 +16,10 @@ class SubjectController extends Controller
         return view('subjects.index');
     }
 
-    public function edit(User $user): View
+    public function edit(Subject $subject): View
     {
 
-        return view('students.edit', compact('user'));
+        return view('subjects.edit', compact('subject'));
     }
 
     public function delete(User $user)
