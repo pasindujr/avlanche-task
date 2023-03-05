@@ -45,7 +45,7 @@ class SubjectTable extends DataTableComponent
                         }),
                     LinkColumn::make('Delete')
                         ->title(fn($row) => 'Delete')
-                        ->location(fn($row) => route('students.delete', $row))
+                        ->location(fn($row) => route('subjects.delete', $row))
                         ->attributes(function ($row) {
                             return [
                                 'class' => 'bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-4 rounded-full',

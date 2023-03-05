@@ -22,10 +22,10 @@ class SubjectController extends Controller
         return view('subjects.edit', compact('subject'));
     }
 
-    public function delete(User $user)
+    public function delete(Subject $subject)
     {
-        $deleted = $user->delete();
+        $deleted = $subject->delete();
 
-        return redirect()->back()->with('student-deleted', 'Student Deleted!');
+        return redirect()->back()->with('subject-deleted', 'Subject Deleted!');
     }
 }
