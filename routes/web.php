@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -32,7 +33,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware('is.student')->group(function () {
-
+        Route::get('welcome', [StudentController::class, 'welcome'])->name('student.welcome');
     });
 
     Route::view('about', 'about')->name('about');
