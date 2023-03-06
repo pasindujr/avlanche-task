@@ -14,16 +14,19 @@
             </div>
 
             <!-- Session Status -->
-            <x-auth-session-status class="mb-4" :status="session('status')"/>
+
 
             <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                <div>
+                    <x-auth-session-status class="mb-4" :status="session('status')"/>
+                </div>
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
 
                     <!-- Email Address -->
                     <div class="relative w-full mb-3">
-                        <x-label for="email" :value="__('Email')" />
-                        <x-input
+                        <x-input-label for="email" :value="__('Email')" />
+                        <x-text-input
                             type="email"
                             value="{{ old('email') }}"
                             required

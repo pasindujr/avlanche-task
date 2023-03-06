@@ -10,7 +10,11 @@
                 </div>
 
                 <!-- Session Status -->
-                <x-auth-session-status class="mb-4" :status="session('status')"/>
+                @if (\Illuminate\Support\Facades\Session::has('status'))
+                    <div class = "font-medium text-sm text-green-600">
+                        {{ Session::get('status') }}
+                    </div>
+                @endif
 
                 <hr class="mt-6 border-b-1 border-slate-300"/>
             </div>

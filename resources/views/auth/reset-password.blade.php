@@ -4,14 +4,14 @@
             class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-200 border-0">
 
             <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <form method="POST" action="{{ route('password.update') }}">
+                <form method="POST" action="{{ route('password.store') }}">
                     @csrf
 
                     <!-- Password Reset Token -->
                     <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                     <!-- Email Address -->
-                    <div class="relative w-full mb-3">
+                    <div class="relative w-full mb-3 mt-6">
                         <x-input-label for="email" :value="__('Email')" />
                         <x-text-input
                             type="email"
