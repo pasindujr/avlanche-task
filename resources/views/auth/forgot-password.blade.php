@@ -25,7 +25,7 @@
 
                     <!-- Email Address -->
                     <div class="relative w-full mb-3">
-                        <x-input-label for="email" :value="__('Email')" />
+                        <x-input-label for="email" :value="__('Email')"/>
                         <x-text-input
                             type="email"
                             value="{{ old('email') }}"
@@ -35,7 +35,7 @@
                             id="email"
                             placeholder="{{ __('Email') }}"
                         />
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2"/>
                     </div>
 
                     <x-primary-button class="w-full">

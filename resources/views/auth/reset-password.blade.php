@@ -12,7 +12,7 @@
 
                     <!-- Email Address -->
                     <div class="relative w-full mb-3 mt-6">
-                        <x-input-label for="email" :value="__('Email')" />
+                        <x-input-label for="email" :value="__('Email')"/>
                         <x-text-input
                             type="email"
                             name="email"
@@ -22,11 +22,11 @@
                             required
                             autofocus
                         />
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2"/>
                     </div>
 
                     <div class="relative w-full mb-3">
-                        <x-input-label for="password" :value="__('Password')" />
+                        <x-input-label for="password" :value="__('Password')"/>
                         <x-text-input
                             type="password"
                             name="password"
@@ -34,11 +34,11 @@
                             placeholder="{{ __('Password') }}"
                             required
                         />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('password')" class="mt-2"/>
                     </div>
 
                     <div class="relative w-full mb-3">
-                        <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                        <x-input-label for="password_confirmation" :value="__('Confirm Password')"/>
                         <x-text-input
                             type="password"
                             name="password_confirmation"
@@ -46,7 +46,7 @@
                             placeholder="{{ __('Confirm Password') }}"
                             required
                         />
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2"/>
                     </div>
 
                     <div class="flex items-center justify-end mt-4">

@@ -11,7 +11,7 @@
 
                 <!-- Session Status -->
                 @if (\Illuminate\Support\Facades\Session::has('status'))
-                    <div class = "font-medium text-sm text-green-600">
+                    <div class="font-medium text-sm text-green-600">
                         {{ Session::get('status') }}
                     </div>
                 @endif
@@ -23,7 +23,7 @@
                     @csrf
 
                     <div class="relative mb-3 w-full">
-                        <x-input-label for="grid-password" :value="__('Email')" />
+                        <x-input-label for="grid-password" :value="__('Email')"/>
                         <x-text-input
                             type="email"
                             value="{{ old('email') }}"
@@ -32,10 +32,10 @@
                             name="email"
                             placeholder="{{ __('Email') }}"
                         />
-                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2"/>
                     </div>
                     <div class="relative mb-3 w-full">
-                        <x-input-label for="grid-password" :value="__('Password')" />
+                        <x-input-label for="grid-password" :value="__('Password')"/>
                         <x-text-input
                             type="password"
                             required
@@ -43,14 +43,14 @@
                             name="password"
                             placeholder="{{ __('Password') }}"
                         />
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('password')" class="mt-2"/>
                     </div>
                     <div>
                         <label class="inline-flex items-center cursor-pointer">
-                        <input id="remember_me"
-                                type="checkbox"
-                                name="remember"
-                                class="ml-1 w-5 h-5 rounded border-0 transition-all duration-150 ease-linear form-checkbox text-slate-700"
+                            <input id="remember_me"
+                                   type="checkbox"
+                                   name="remember"
+                                   class="ml-1 w-5 h-5 rounded border-0 transition-all duration-150 ease-linear form-checkbox text-slate-700"
                             />
                             <span class="ml-2 text-sm font-semibold text-slate-600">
                                 {{ __('Remember me') }}
