@@ -58,6 +58,23 @@ class StudentTable extends DataTableComponent
                             ];
                         }),
                 ]),
+            ButtonGroupColumn::make('Assign')
+                ->unclickable()
+                ->attributes(function ($row) {
+                    return [
+                        'class' => 'space-x-2',
+                    ];
+                })
+                ->buttons([
+                    LinkColumn::make('Action')
+                        ->title(fn($row) => 'Subject')
+                        ->location(fn($row) => route('students.assign', $row))
+                        ->attributes(function ($row) {
+                            return [
+                                'class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full',
+                            ];
+                        }),
+                ]),
         ];
     }
 
