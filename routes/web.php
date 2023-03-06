@@ -20,26 +20,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
+    Route::middleware('is.admin')->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+
+        // Student routes
+        Route::get('students', [UserController::class, 'index'])->name('students.index');
+        Route::view('students/create', 'students.create')->name('students.create');
+        Route::get('students/edit/{user}', [UserController::class, 'edit'])->name('students.edit');
+        Route::get('students/delete/{user}', [UserController::class, 'delete'])->name('students.delete');
+        Route::get('students/assign/subject/{user}', [UserController::class, 'assignSubjects'])->name('students.assign.subject');
+        Route::get('students/assign/mark/{user}', [UserController::class, 'assignMarks'])->name('students.assign.mark');
+
+        // Subject routes
+        Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
+        Route::view('subjects/create', 'subjects.create')->name('subjects.create');
+        Route::get('subjects/edit/{subject}', [SubjectController::class, 'edit'])->name('subjects.edit');
+        Route::get('subjects/delete/{subject}', [SubjectController::class, 'delete'])->name('subjects.delete');
+    });
+
     Route::view('about', 'about')->name('about');
-
-    // Student routes
-    Route::get('students', [UserController::class, 'index'])->name('students.index');
-    Route::view('students/create', 'students.create')->name('students.create');
-    Route::get('students/edit/{user}', [UserController::class, 'edit'])->name('students.edit');
-    Route::get('students/delete/{user}', [UserController::class, 'delete'])->name('students.delete');
-    Route::get('students/assign/subject/{user}', [UserController::class, 'assignSubjects'])->name('students.assign.subject');
-    Route::get('students/assign/mark/{user}', [UserController::class, 'assignMarks'])->name('students.assign.mark');
-
-    // Subject routes
-    Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
-    Route::view('subjects/create', 'subjects.create')->name('subjects.create');
-    Route::get('subjects/edit/{subject}', [SubjectController::class, 'edit'])->name('subjects.edit');
-    Route::get('subjects/delete/{subject}', [SubjectController::class, 'delete'])->name('subjects.delete');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

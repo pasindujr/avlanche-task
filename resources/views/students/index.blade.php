@@ -5,7 +5,7 @@
                 <div class="flex flex-wrap items-center">
                     <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                         <h3 class="font-semibold text-lg text-slate-700">
-                            {{ __('Users') }}
+                            {{ __('Students') }}
                         </h3>
                         @if(Session::has('student-deleted'))
                             <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-orange-500"><span
