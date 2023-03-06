@@ -57,7 +57,7 @@
                 </li>
 
                 <li class="items-center">
-                    <x-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index', 'students.create', 'students.edit', 'students.assign')">
+                    <x-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index', 'students.create', 'students.edit', 'students.assign.subject', 'students.assign.mark')">
                         <x-slot name="icon">
                             <i class="fas fa-users mr-2 text-sm opacity-75"></i>
                         </x-slot>
@@ -85,19 +85,6 @@
             </ul>
 
             <x-divider class="my-4" />
-
-            <x-nav-heading>
-                Two-level menu
-            </x-nav-heading>
-
-            <ul class="md:flex-col md:min-w-full flex flex-col list-none">
-                <x-nav-link href="#">
-                    <x-slot name="icon">
-                        <i class="far fa-circle mr-2 text-sm opacity-75"></i>
-                    </x-slot>
-                    Child menu
-                </x-nav-link>
-            </ul>
         </div>
     </div>
 </nav>

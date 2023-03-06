@@ -68,7 +68,15 @@ class StudentTable extends DataTableComponent
                 ->buttons([
                     LinkColumn::make('Action')
                         ->title(fn($row) => 'Subject')
-                        ->location(fn($row) => route('students.assign', $row))
+                        ->location(fn($row) => route('students.assign.subject', $row))
+                        ->attributes(function ($row) {
+                            return [
+                                'class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full',
+                            ];
+                        }),
+                    LinkColumn::make('Action')
+                        ->title(fn($row) => 'Mark')
+                        ->location(fn($row) => route('students.assign.mark', $row))
                         ->attributes(function ($row) {
                             return [
                                 'class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full',

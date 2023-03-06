@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::view('students/create', 'students.create')->name('students.create');
     Route::get('students/edit/{user}', [UserController::class, 'edit'])->name('students.edit');
     Route::get('students/delete/{user}', [UserController::class, 'delete'])->name('students.delete');
-    Route::get('students/assign/subject/{user}', [UserController::class, 'assign'])->name('students.assign');
+    Route::get('students/assign/subject/{user}', [UserController::class, 'assignSubjects'])->name('students.assign.subject');
+    Route::get('students/assign/mark/{user}', [UserController::class, 'assignMarks'])->name('students.assign.mark');
 
     // Subject routes
     Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');

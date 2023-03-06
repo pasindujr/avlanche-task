@@ -29,7 +29,7 @@ class UserController extends Controller
         return redirect()->back()->with('student-deleted', 'Student Deleted!');
     }
 
-    public function assign(User $user)
+    public function assignSubjects(User $user)
     {
         $subjects = Subject::select('id', 'name')
             ->get();
@@ -38,6 +38,16 @@ class UserController extends Controller
         $subjectsOfStudent = $student->subjects()->get();
         $subjectIds = $subjectsOfStudent->pluck('pivot.subject_id')->toArray();
 
-        return view('students.assign.mark', compact('user', 'subjects', 'subjectIds'));
+        return view('students.assign.subjects', compact('user', 'subjects', 'subjectIds'));
+    }
+
+    public function assignMarks(User $user)
+    {
+        $subjects = $user->subjects;
+
+
+        $markArray = $subjects->pluck('pivot.marks')->toArray();
+
+        return view('students.assign.marks', compact('user', 'subjects', 'markArray'));
     }
 }
