@@ -4,23 +4,26 @@ namespace App\Http\Livewire\Student;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
 
 class CreateForm extends Component
 {
     use LivewireAlert;
 
     public $name;
+
     public $email;
+
     public $password;
+
     public $passwordValidation;
 
     protected $rules = [
         'name' => 'required|min:6',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|min:8|required_with:passwordValidation|same:passwordValidation',
-        'passwordValidation' => 'min:8'
+        'passwordValidation' => 'min:8',
     ];
 
     public function submit()
@@ -42,6 +45,7 @@ class CreateForm extends Component
 
         $this->reset();
     }
+
     public function render()
     {
         return view('livewire.student.create-form');

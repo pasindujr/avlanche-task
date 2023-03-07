@@ -11,8 +11,11 @@ class EditForm extends Component
     use LivewireAlert;
 
     public $subject;
+
     public $name;
+
     public $weight;
+
     public $subjectId;
 
     public function mount()
@@ -21,7 +24,6 @@ class EditForm extends Component
         $this->weight = $this->subject->weight;
         $this->subjectId = $this->subject->id;
     }
-
 
     protected $rules = [
         'name' => 'required',
@@ -45,9 +47,9 @@ class EditForm extends Component
                 'toast' => true,
                 'timerProgressBar' => true,
             ]);
-
         }
     }
+
     public function render()
     {
         return view('livewire.subject.edit-form');

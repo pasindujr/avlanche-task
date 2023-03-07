@@ -3,16 +3,19 @@
 namespace App\Http\Livewire\Student;
 
 use App\Models\User;
-use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
 
 class EditForm extends Component
 {
     use LivewireAlert;
 
     public $user;
+
     public $name;
+
     public $email;
+
     public $studentId;
 
     public function mount()
@@ -21,7 +24,6 @@ class EditForm extends Component
         $this->email = $this->user->email;
         $this->studentId = $this->user->id;
     }
-
 
     protected $rules = [
         'name' => 'required|min:6',
@@ -45,7 +47,6 @@ class EditForm extends Component
                 'toast' => true,
                 'timerProgressBar' => true,
             ]);
-
         }
     }
 

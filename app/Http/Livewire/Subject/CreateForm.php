@@ -8,10 +8,10 @@ use Livewire\Component;
 
 class CreateForm extends Component
 {
-
     use LivewireAlert;
 
     public $name;
+
     public $weight;
 
     protected $rules = [

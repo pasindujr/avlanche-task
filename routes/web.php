@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,8 +12,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::middleware('is.admin')->group(function () {
-
-        Route::get('/dashboard', [UserController::class,'dashboard'])->name('dashboard');
+        Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
         // Student routes
         Route::get('students', [UserController::class, 'index'])->name('students.index');
@@ -40,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

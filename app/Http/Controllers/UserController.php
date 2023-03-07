@@ -28,7 +28,6 @@ class UserController extends Controller
 
     public function edit(User $user): View
     {
-
         return view('students.edit', compact('user'));
     }
 
@@ -54,7 +53,6 @@ class UserController extends Controller
     public function assignMarks(User $user)
     {
         $subjects = $user->subjects;
-
 
         $markArray = $subjects->pluck('pivot.marks')->toArray();
 

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -18,7 +17,7 @@ class StudentController extends Controller
         // Calculate the total marks
         $totalMarks = 0;
         foreach ($marks as $subject) {
-            if (!$subject->pivot->mark == '') {
+            if (! $subject->pivot->mark == '') {
                 $totalMarks += $subject->pivot->mark;
             }
         }
@@ -30,7 +29,6 @@ class StudentController extends Controller
             // Round the average marks to two decimal places
             $averageMarks = round($averageMarks, 2);
         }
-
 
         return view('students.student.welcome', compact('marks', 'averageMarks'));
     }
@@ -45,7 +43,7 @@ class StudentController extends Controller
         // Calculate the total marks
         $totalMarks = 0;
         foreach ($marks as $subject) {
-            if (!$subject->pivot->mark == '') {
+            if (! $subject->pivot->mark == '') {
                 $totalMarks += $subject->pivot->mark;
             }
         }
@@ -59,6 +57,7 @@ class StudentController extends Controller
         }
 
         $pdf = Pdf::loadView('students.student.exportpdf', compact('marks', 'averageMarks'));
+
         return $pdf->download('resultsheet.pdf');
     }
 }

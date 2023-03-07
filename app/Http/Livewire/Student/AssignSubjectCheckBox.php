@@ -9,44 +9,44 @@ use Livewire\Component;
 class AssignSubjectCheckBox extends Component
 {
     public $studentId;
+
     public $subjectId;
+
     public $checked;
 
-public function processAssign()
-{
-    if ($this->checked) {
-        $this->mark();
-    } else {
-        $this->unMark();
-    }
-
-}
-
-    public function mark()
+    public function processAssign()
     {
-        $subject = Subject::where('id', $this->subjectId)
-            ->first();
-
-        $student = User::where('id', $this->studentId)
-            ->first();
-
-        $student->subjects()->attach($subject);
-
+        if ($this->checked) {
+            $this->mark();
+        } else {
+            $this->unMark();
+        }
     }
 
-    public function unMark()
-    {
-        $subject = Subject::where('id', $this->subjectId)
-            ->first();
+        public function mark()
+        {
+            $subject = Subject::where('id', $this->subjectId)
+                ->first();
 
-        $student = User::where('id', $this->studentId)
-            ->first();
+            $student = User::where('id', $this->studentId)
+                ->first();
 
-        $student->subjects()->detach($subject);
+            $student->subjects()->attach($subject);
+        }
 
-    }
-    public function render()
-    {
-        return view('livewire.student.assign-subject-check-box');
-    }
+        public function unMark()
+        {
+            $subject = Subject::where('id', $this->subjectId)
+                ->first();
+
+            $student = User::where('id', $this->studentId)
+                ->first();
+
+            $student->subjects()->detach($subject);
+        }
+
+        public function render()
+        {
+            return view('livewire.student.assign-subject-check-box');
+        }
 }

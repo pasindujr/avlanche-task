@@ -12,7 +12,7 @@ class Subject extends Model
 
     protected $fillable = [
         'name',
-        'weight'
+        'weight',
     ];
 
     public function students(): BelongsToMany

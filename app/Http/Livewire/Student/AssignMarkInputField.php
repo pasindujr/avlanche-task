@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire\Student;
 
-use App\Models\Subject;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class AssignMarkInputField extends Component
 {
     public $studentId;
+
     public $subjectId;
+
     public $mark;
 
     public function updatedMark()
@@ -24,9 +24,8 @@ class AssignMarkInputField extends Component
             ->first();
 
         $student->subjects()->updateExistingPivot($this->subjectId, [
-            'mark' => $this->mark
+            'mark' => $this->mark,
         ]);
-
     }
 
     public function render()
