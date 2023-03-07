@@ -32,9 +32,8 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('is.student')->group(function () {
         Route::get('welcome', [StudentController::class, 'welcome'])->name('student.welcome');
+        Route::get('export/pdf', [StudentController::class, 'exportPdf'])->name('student.export.pdf');
     });
-
-    Route::view('about', 'about')->name('about');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

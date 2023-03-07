@@ -7,7 +7,14 @@
                         <h3 class="font-semibold text-lg text-slate-700">
                             {{ __('Marks of ' . auth()->user()->name) }}
                         </h3>
+
                     </div>
+                    <a href="{{ route('student.export.pdf') }}">
+                        <button class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                            Export PDF
+                        </button>
+                    </a>
+
                 </div>
             </div>
             <div class="px-6 py-4 border-0 rounded relative mb-4">
