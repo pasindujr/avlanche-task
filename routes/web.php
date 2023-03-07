@@ -13,9 +13,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::middleware('is.admin')->group(function () {
 
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [UserController::class,'dashboard'])->name('dashboard');
 
         // Student routes
         Route::get('students', [UserController::class, 'index'])->name('students.index');

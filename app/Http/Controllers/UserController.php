@@ -16,6 +16,16 @@ class UserController extends Controller
         return view('students.index');
     }
 
+    public function dashboard()
+    {
+        $studentCount = User::where('is_student', 1)
+            ->count();
+
+        $subjectCount = Subject::count();
+
+        return view('dashboard', compact('studentCount', 'subjectCount'));
+    }
+
     public function edit(User $user): View
     {
 
