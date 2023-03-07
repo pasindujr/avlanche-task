@@ -13,7 +13,7 @@ class AssignMarkInputField extends Component
     public $subjectId;
     public $mark;
 
-    public function updated()
+    public function updatedMark()
     {
         $this->mark();
     }
