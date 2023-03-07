@@ -47,6 +47,7 @@
                     </div>
 
                 </div>
+                @livewire('student.live-average-card', ['subjects'  => $subjects, 'studentName' => $user->name])
             </div>
 
         </div>
