@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#000000"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Avlanche Student Management System') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -22,27 +22,6 @@
                 </div>
             </div>
 
-            <footer class="absolute w-full bottom-0 bg-slate-800 pb-6">
-                <div class="container mx-auto px-4">
-                    <hr class="mb-6 border-b-1 border-slate-600"/>
-                    <div
-                        class="flex flex-wrap items-center md:justify-between justify-center"
-                    >
-                        <div class="w-full md:w-4/12 px-4">
-                            <div
-                                class="text-sm text-white font-semibold py-1 text-center md:text-left"
-                            >
-                                Copyright © <span id="get-current-year"></span>
-                                <a
-                                    href="https://www.creative-tim.com?ref=njs-login"
-                                    class="text-white hover:text-slate-300 text-sm font-semibold py-1"
-                                >Creative Tim</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </section>
     </main>
 </div>

@@ -9,7 +9,7 @@
         </button>
         <a class="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
            href="{{ route('dashboard') }}">
-            Notus JS
+            Avlanche SMS
         </a>
         <ul class="md:hidden items-center flex flex-wrap list-none">
             <li class="inline-block relative">
@@ -55,10 +55,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Heading -->
-            <x-nav-heading>
-                {{ __('Admin Layout Pages') }}
-            </x-nav-heading>
 
             <!-- Navigation -->
             <ul class="md:flex-col md:min-w-full flex flex-col list-none">
