@@ -48,4 +48,9 @@ class EmployeeController extends Controller
         return redirect()->route('employees.index')->with('status', 'Employee created!');
     }
 
+    public function show(User $employee)
+    {
+        return view('employees.show', compact('employee'));
+    }
+
 }
