@@ -28,6 +28,9 @@ class EmployeeRequest extends FormRequest
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'mobile' => ['required', 'numeric', 'unique:.App\Models\User,mobile_number'],
             'address' => ['required', 'string', 'max:200'],
+            'gender' => ['required', 'string', 'max:10'],
+            'position' => ['required', 'numeric'],
+            'department' => ['required', 'numeric'],
             'password' => ['required', 'confirmed', 'min:6'],
             'admin' => ['required', 'boolean'],
         ];
