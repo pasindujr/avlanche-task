@@ -24,6 +24,7 @@ class User extends Authenticatable
         'address',
         'position_id',
         'department_id',
+        'is_admin',
         'password',
     ];
 
