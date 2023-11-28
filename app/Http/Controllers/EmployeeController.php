@@ -53,4 +53,13 @@ class EmployeeController extends Controller
         return view('employees.show', compact('employee'));
     }
 
+    public function destroy(User $employee)
+    {
+        $employee->delete();
+
+        toast('Employee Deleted!','success');
+
+        return redirect()->back()->with('status', 'Employee deleted!');
+    }
+
 }
