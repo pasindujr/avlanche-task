@@ -30,6 +30,31 @@
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
 
+        <!-- Departments -->
+        <div class="mt-4">
+            <x-input-label for="department" :value="__('Department')" />
+            <select required class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" name="department" id="department">
+                <option value="">Select a department</option>
+                @foreach($departments as $department)
+                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('department')" class="mt-2" />
+        </div>
+
+
+        <!-- Positions -->
+        <div class="mt-4">
+            <x-input-label for="position" :value="__('Position')" />
+            <select required class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" name="position" id="position">
+                <option value="">Select a position</option>
+                @foreach($positions as $position)
+                    <option value="{{ $position->id }}">{{ $position->name }}</option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('position')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
