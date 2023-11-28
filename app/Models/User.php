@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'mobile_number',
         'address',
+        'gender',
         'position_id',
         'department_id',
         'is_admin',

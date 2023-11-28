@@ -41,6 +41,9 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'mobile' => ['required', 'numeric', 'unique:.App\Models\User,mobile_number'],
             'address' => ['required', 'string', 'max:200'],
+            'gender' => ['required', 'string', 'max:10'],
+            'position' => ['required', 'numeric'],
+            'department' => ['required', 'numeric'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -49,6 +52,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'mobile_number' => $request->mobile,
             'address' => $request->address,
+            'gender' => $request->gender,
             'position_id' => $request->position,
             'department_id' => $request->department,
             'password' => Hash::make($request->password),

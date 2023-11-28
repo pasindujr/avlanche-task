@@ -20,11 +20,13 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'mobile_number' => fake()->phoneNumber(),
             'address' => fake()->address(),
+            'gender' => fake()->randomElements(['male', 'female', 'other']),
             'position_id' => fake()->numberBetween(1, 10),
             'department_id' => fake()->numberBetween(1, 10),
             'email_verified_at' => now(),

@@ -46,6 +46,19 @@
 
         </div>
 
+        <!-- Gender -->
+        <div class="mt-4">
+            <x-input-label for="gender" :value="__('Gender')" />
+            <select required class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm block mt-1 w-full" name="gender" id="gender">
+
+                    <option @if($user->gender == 'male') selected @endif value="male">Male</option>
+                    <option @if($user->gender == 'female') selected @endif value="female">Female</option>
+                    <option @if($user->gender == 'other') selected @endif value="other">Other</option>
+
+            </select>
+            <x-input-error :messages="$errors->get('gender')" class="mt-2" />
+        </div>
+
         <!-- Departments -->
         <div class="mt-4">
             <x-input-label for="department" :value="__('Department')" />
