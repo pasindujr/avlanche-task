@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('mobile_number')->unique();
+            $table->string('address');
+            $table->boolean('is_admin')->default(false);
+            $table->foreignId('position_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('department_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
