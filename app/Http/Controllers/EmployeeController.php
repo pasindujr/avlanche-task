@@ -6,7 +6,6 @@ use App\Http\Requests\EmployeeRequest;
 use App\Models\Department;
 use App\Models\Position;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 
