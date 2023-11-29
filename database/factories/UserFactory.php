@@ -24,9 +24,9 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'mobile_number' => fake()->phoneNumber(),
+            'mobile_number' => fake()->randomNumber(8, true),
             'address' => fake()->address(),
-            'gender' => fake()->randomElements(['male', 'female', 'other']),
+            'gender' => fake()->randomElements(['male', 'female', 'other'])[0],
             'position_id' => fake()->numberBetween(1, 10),
             'department_id' => fake()->numberBetween(1, 10),
             'email_verified_at' => now(),

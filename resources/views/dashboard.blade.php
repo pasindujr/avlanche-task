@@ -14,27 +14,28 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-3 mt-3">
-                <div>
-                    {!! $genderChart->container() !!}
+            @can('is-admin')
+                <div class="grid grid-cols-2 gap-3 mt-3">
+                    <div>
+                        {!! $genderChart->container() !!}
 
-                    {!! $genderChart->script() !!}
+                        {!! $genderChart->script() !!}
+                    </div>
+
+                    <div>
+                        {!! $departmentChart->container() !!}
+
+                        {!! $departmentChart->script() !!}
+                    </div>
+
+                    <div>
+                        {!! $positionChart->container() !!}
+
+                        {!! $positionChart->script() !!}
+                    </div>
+
                 </div>
-
-                <div>
-                    {!! $departmentChart->container() !!}
-
-                    {!! $departmentChart->script() !!}
-                </div>
-
-                <div>
-                    {!! $positionChart->container() !!}
-
-                    {!! $positionChart->script() !!}
-                </div>
-
-            </div>
-
+            @endcan
 
         </div>
     </div>
