@@ -53,9 +53,10 @@ class ProfileController extends Controller
             ->setTitle('Employees by Position')
             ->setForeColor('#ffffff')
             ->setLabels($positions->pluck('name')->toArray())
+            ->setFillColors((array)'#f44336',)
             ->setDataset('Employees by Position', 'bar', $positions->pluck('users_count')->toArray());
 
-        return view('dashboard',compact('genderChart', 'departmentChart', 'positionChart'));
+        return view('dashboard', compact('genderChart', 'departmentChart', 'positionChart'));
     }
 
     public function edit(Request $request): View
