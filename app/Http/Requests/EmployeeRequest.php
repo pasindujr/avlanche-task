@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -23,10 +22,24 @@ class EmployeeRequest extends FormRequest
      */
     public function rules(): array
     {
+
+        if ($this->isMethod('put')) { // Only on create (POST method)
+            return [
+                'name' => ['required', 'string', 'max:255', ],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users', 'email')->ignore($this->employee)],
+                'mobile' => ['required', 'numeric', Rule::unique('users', 'mobile_number')->ignore($this->employee)],
+                'address' => ['required', 'string', 'max:200'],
+                'gender' => ['required', 'string', 'max:10'],
+                'position' => ['required', 'numeric'],
+                'department' => ['required', 'numeric'],
+                'admin' => ['required', 'boolean'],
+            ];
+        }
+
         return [
             'name' => ['required', 'string', 'max:255', ],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'mobile' => ['required', 'numeric', 'unique:.App\Models\User,mobile_number'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users', 'email')->ignore($this->employee)],
+            'mobile' => ['required', 'numeric', Rule::unique('users', 'mobile_number')->ignore($this->employee)],
             'address' => ['required', 'string', 'max:200'],
             'gender' => ['required', 'string', 'max:10'],
             'position' => ['required', 'numeric'],

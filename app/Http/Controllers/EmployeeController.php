@@ -42,7 +42,7 @@ class EmployeeController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        toast('Employee Created!','success');
+        toast('Employee Created!', 'success');
 
         return redirect()->route('employees.index')->with('status', 'Employee created!');
     }
@@ -52,11 +52,37 @@ class EmployeeController extends Controller
         return view('employees.show', compact('employee'));
     }
 
+    public function edit(User $employee)
+    {
+        $departments = Department::all();
+        $positions = Position::all();
+
+        return view('employees.edit', compact('employee', 'departments', 'positions'));
+    }
+
+    public function update(EmployeeRequest $request, User $employee)
+    {
+        $employee->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile_number' => $request->mobile,
+            'address' => $request->address,
+            'gender' => $request->gender,
+            'position_id' => $request->position,
+            'department_id' => $request->department,
+            'is_admin' => $request->admin,
+        ]);
+
+        toast('Employee Updated!', 'success');
+
+        return redirect()->back()->with('status', 'Employee updated!');
+    }
+
     public function destroy(User $employee)
     {
         $employee->delete();
 
-        toast('Employee Deleted!','success');
+        toast('Employee Deleted!', 'success');
 
         return redirect()->back()->with('status', 'Employee deleted!');
     }
