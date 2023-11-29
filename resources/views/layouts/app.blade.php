@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @apexchartsScripts
     </head>
     <body class="font-sans antialiased">
     @include('sweetalert::alert')
@@ -34,5 +35,6 @@
                 {{ $slot }}
             </main>
         </div>
+
     </body>
 </html>

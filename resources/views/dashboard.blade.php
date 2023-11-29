@@ -12,6 +12,29 @@
                     <span>Hello {{ auth()->user()->name }}. Manage your profile in <a class="underline" href="{{ route('profile.edit') }}">profile</a> section</span>
                 </div>
             </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div >
+                    {!! $genderChart->container() !!}
+
+                    {!! $genderChart->script() !!}
+                </div>
+
+                <div >
+                    {!! $departmentChart->container() !!}
+
+                    {!! $departmentChart->script() !!}
+                </div>
+
+                <div >
+                    {!! $positionChart->container() !!}
+
+                    {!! $positionChart->script() !!}
+                </div>
+
+            </div>
+
+
         </div>
     </div>
 </x-app-layout>
