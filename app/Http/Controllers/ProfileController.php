@@ -20,6 +20,11 @@ class ProfileController extends Controller
     public function index()
     {
         if (Gate::allows('is-admin')) {
+
+            //user count and admin count
+            $userCount = User::count();
+            $adminCount = User::where('is_admin', 1)->count();
+
             $maleCount = User::where('gender', 'male')->count();
             $femaleCount = User::where('gender', 'female')->count();
             $otherCount = User::where('gender', 'other')->count();
@@ -57,7 +62,7 @@ class ProfileController extends Controller
                 ->setFillColors((array)'#f44336',)
                 ->setDataset('Employees by Position', 'bar', $positions->pluck('users_count')->toArray());
 
-            return view('dashboard', compact('genderChart', 'departmentChart', 'positionChart'));
+            return view('dashboard', compact('genderChart', 'departmentChart', 'positionChart', 'userCount', 'adminCount'));
         } else {
             return view('dashboard');
         }
